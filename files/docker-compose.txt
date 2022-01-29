@@ -1,0 +1,15 @@
+************
+* \e[0;1mCommands\e[0m *
+************
+
+Start stack
+    \e[0;32mdocker-compose up -d\e[0m
+    \e[0;32mdcupd (ZSH alias)\e[0m
+
+Stop stack
+    \e[0;32mdocker-compose down\e[0m
+    \e[0;32mdcdn (ZSH alias)\e[0m
+
+Pull images
+    \e[0;32mdocker-compose pull\e[0m
+    \e[0;32mdcpull (ZSH alias)\e[0m
