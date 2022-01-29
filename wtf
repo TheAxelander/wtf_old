@@ -63,13 +63,16 @@ install() {
   echo "Clone Git repository to ~/.local/wtf"
   git clone https://github.com/TheAxelander/wtf.git ~/.local/wtf
 
-  echo "Copy wtf script to /usr/local/bin"
-  sudo cp ~/.local/wtf/wtf /usr/local/bin/wtf
+  echo "Sync wtf script to /usr/local/bin"
+  sudo rsync -a ~/.local/wtf/wtf /usr/local/bin/wtf
 }
 
 update() {
   echo "Update Git repository in ~/.local/wtf"
   git -C ~/.local/wtf pull 
+
+  echo "Sync wtf script to /usr/local/bin"
+  sudo rsync -a ~/.local/wtf/wtf /usr/local/bin/wtf
 }
 
 if [[ $# == 0 ]] ; then
