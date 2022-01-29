@@ -33,7 +33,7 @@ SCRIPT_HEADSIZE=$(head -200 ${0} | grep -n "^# END_OF_HEADER" | cut -f1 -d:)
 SCRIPT_NAME="$(basename ${0})"
 
 # --- Script variables ---------------------------------------------------------
-FILES_PATH="~/.local/wtf/files"
+FILES_PATH="$HOME/.local/wtf/files"
 
 # --- Usage functions ----------------------------------------------------------
 usage() { 
