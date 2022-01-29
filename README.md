@@ -22,7 +22,6 @@ wtf docker
 
 ```
 -h,          Print script help
--i,          Install help files
 -t,          Run script in Dev mode (use files from current directory)
 -u,          Update help files
 -v,          Print script information
