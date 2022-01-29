@@ -1,0 +1,36 @@
+*******************
+* \e[0;1mDay-To-Day Work\e[0m *
+*******************
+
+Displays the status of your working directory
+    \e[0;32mgit status\e[0m
+
+Add a file to the staging area
+    \e[0;32mgit add <<file>>\e[0m
+
+Create a new commit
+    \e[0;32mgit commit -m "<<Message>>"\e[0m
+
+List all local branches in repository. With -a: show all branches (with remote)
+    \e[0;32mgit branch -a\e[0m
+
+Join specified [from name] branch into your current branch (the one you are on currently)
+    \e[0;32mgit merge <<from name>>\e[0m
+    \e[0;32mgit merge --squash <<from name>>\e[0m
+
+Put current changes in your working directory into stash for later use
+    \e[0;32mgit stash\e[0m
+
+Apply stored stash content into working directory, and clear stash
+    \e[0;32mgit stash pop\e[0m
+
+Delete a specific stash from all your previous stashes
+    \e[0;32mgit stash drop\e[0m
+
+********************
+* \e[0;1mGit configuration\e[0m *
+********************
+
+Set the name and e-mail address that will be attached to your commits and tags
+    \e[0;32mgit config --global user.name "Your Name"\e[0m
+    \e[0;32mgit config --global user.email "you@example.com"\e[0m
