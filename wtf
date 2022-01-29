@@ -19,7 +19,7 @@
 #%
 #===============================================================================
 #- IMPLEMENTATION
-#-    version         ${SCRIPT_NAME} 0.0.1
+#-    version         ${SCRIPT_NAME} 1.0.0
 #-    author          Alexander Preibisch
 #-    license         MIT License
 #-
