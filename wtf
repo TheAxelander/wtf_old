@@ -1,0 +1,128 @@
+#!/bin/bash
+#===============================================================================
+# HEADER
+#===============================================================================
+#% SYNOPSIS
+#+    ${SCRIPT_NAME} [<Options>] <Command>
+#%
+#% DESCRIPTION
+#%    Display custom help text depending on your command input.
+#%
+#% OPTIONS
+#%    -h,          Print script help
+#%    -i,          Install help files
+#%    -t,          Run script in Dev mode (use files from current directory)
+#%    -u,          Update help files
+#%    -v,          Print script information
+#%
+#% EXAMPLES
+#%    ${SCRIPT_NAME} docker
+#%
+#===============================================================================
+#- IMPLEMENTATION
+#-    version         ${SCRIPT_NAME} 0.0.1
+#-    author          Alexander Preibisch
+#-    license         MIT License
+#-
+#===============================================================================
+# END_OF_HEADER
+#===============================================================================
+
+# --- Header variables ---------------------------------------------------------
+SCRIPT_HEADSIZE=$(head -200 ${0} | grep -n "^# END_OF_HEADER" | cut -f1 -d:)
+SCRIPT_NAME="$(basename ${0})"
+
+# --- Script variables ---------------------------------------------------------
+FILES_PATH="~/.local/wtf/files"
+
+# --- Usage functions ----------------------------------------------------------
+usage() { 
+  printf "Usage: "
+  scriptinfo usg 
+}
+
+usagefull() { 
+  scriptinfo ful
+}
+
+scriptinfo() { 
+  if [[ "$1" = "usg" ]]; then
+    headFilter="^#+"
+  elif [[ "$1" = "ful" ]]; then
+    headFilter="^#[%+]"
+  elif [[ "$1" = "ver" ]]; then
+    headFilter="^#-"
+  else
+    headFilter="^#-"
+  fi
+  head -${SCRIPT_HEADSIZE:-99} ${0} | grep -e "${headFilter}" | sed -e "s/${headFilter}//g" -e "s/\${SCRIPT_NAME}/${SCRIPT_NAME}/g"
+}
+ 
+# --- Option processing --------------------------------------------------------
+install() {
+  echo "Clone Git repository to ~/.local/wtf"
+  git clone https://github.com/TheAxelander/wtf.git ~/.local/wtf
+
+  echo "Copy wtf script to /usr/local/bin"
+  sudo cp ~/.local/wtf/wtf /usr/local/bin/wtf
+}
+
+update() {
+  echo "Update Git repository in ~/.local/wtf"
+  git pull ~/.local/wtf
+}
+
+if [[ $# == 0 ]] ; then
+    usagefull
+    exit 1;
+fi
+
+while getopts ":vhitu" optname
+  do
+    case "$optname" in
+      "v")
+        scriptinfo
+        exit 0;
+        ;;
+      "h")
+        usagefull
+        exit 0;
+        ;;
+      "i")
+        install
+        exit 0;
+        ;;
+      "t")
+        FILES_PATH="./files"
+        ;;
+      "u")
+        update
+        exit 0;
+        ;;
+      "?")
+        echo "Unknown option $OPTARG"
+        exit 0;
+        ;;
+      ":")
+        echo "No argument value for option $OPTARG"
+        exit 0;
+        ;;
+      *)
+        echo "Unknown error while processing options"
+        exit 0;
+        ;;
+    esac
+  done
+
+# Remove all options that have been parsed by getopts from parameters list
+shift $(($OPTIND - 1))
+
+#===============================================================================
+# SCRIPT LOGIC
+#===============================================================================
+
+print_file() {
+  cat "$FILES_PATH/$1.txt"  
+}
+
+print_file $1
