@@ -69,7 +69,7 @@ install() {
 
 update() {
   echo "Update Git repository in ~/.local/wtf"
-  git pull ~/.local/wtf
+  git -C ~/.local/wtf pull 
 }
 
 if [[ $# == 0 ]] ; then
