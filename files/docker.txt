@@ -1,0 +1,34 @@
+********************
+* \e[0;1mManage conatiner\e[0m *
+********************
+
+Show list of container (a- for all)
+    \e[0;32mdocker ps -a\e[0m
+
+Start a shell inside a running container
+    \e[0;32mdocker exec -it <<Container>> bash\e[0m
+
+*****************
+* \e[0;1mManage images\e[0m *
+*****************
+
+Build and tag an image
+    \e[0;32mdocker build -t <<TAG>> -f <<Dockerfile location>> <<Directory>>\e[0m
+    \e[0;33mdocker build -t axelander/openbudgeteer:pre-release -f ./OpenBudgeteer.Blazor/Dockerfile .\e[0m
+
+Upload image to a repository
+    \e[0;32mdocker push <<Image>>\e[0m
+    \e[0;33mdocker push axelander/openbudgeteer:pre-release\e[0m
+
+    \e[0;33mdocker login docker.axelander.net\e[0m
+    \e[0;33mdocker push axelanderwiki:latest\e[0m
+
+****************
+* \e[0;1mInfo & Stats\e[0m *
+****************
+
+Show log of a container
+    \e[0;32mdocker logs <<Container>>\e[0m
+
+Show stats of a running container
+    \e[0;32mdocker stats <<Container>>\e[0m
