@@ -11,7 +11,7 @@
 #% OPTIONS
 #%    -h,          Print script help
 #%    -t,          Run script in Dev mode (use files from current directory)
-#%    -u,          Update help files
+#%    -u,          Update script and help files
 #%    -v,          Print script information
 #%
 #% EXAMPLES
@@ -19,7 +19,7 @@
 #%
 #===============================================================================
 #- IMPLEMENTATION
-#-    version         ${SCRIPT_NAME} 1.0.0
+#-    version         ${SCRIPT_NAME} 1.0.1
 #-    author          Alexander Preibisch
 #-    license         MIT License
 #-

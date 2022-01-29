@@ -23,6 +23,6 @@ wtf docker
 ```
 -h,          Print script help
 -t,          Run script in Dev mode (use files from current directory)
--u,          Update help files
+-u,          Update script and help files
 -v,          Print script information
 ```
