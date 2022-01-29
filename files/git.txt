@@ -27,9 +27,9 @@ Apply stored stash content into working directory, and clear stash
 Delete a specific stash from all your previous stashes
     \e[0;32mgit stash drop\e[0m
 
-********************
+*********************
 * \e[0;1mGit configuration\e[0m *
-********************
+*********************
 
 Set the name and e-mail address that will be attached to your commits and tags
     \e[0;32mgit config --global user.name "Your Name"\e[0m
