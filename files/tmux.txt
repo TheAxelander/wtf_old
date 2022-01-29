@@ -1,0 +1,38 @@
+*************
+* \e[0;1mShortcuts\e[0m *
+*************
+
+Split panes
+    \e[0;32mCtrl-b % (vertical)\e[0m
+    \e[0;32mCtrl-b " (horizontal)\e[0m
+
+Switching to a different pane
+    \e[0;32mCtrl-b <<arrow key>>\e[0m
+
+Create a new window
+    \e[0;32mCtrl-b c\e[0m
+
+Switch windows
+    \e[0;32mCtrl-b p (previous)\e[0m
+    \e[0;32mCtrl-b n (next)\e[0m
+
+********************
+* \e[0;1mSession handling\e[0m *
+********************
+
+Start a new session
+    \e[0;32mtmux\e[0m
+    \e[0;32mtmux new -s <<Session name>>\e[0m
+
+Detach current session
+    \e[0;32mCtrl-b d\e[0m
+
+List sessions
+    \e[0;32mtmux ls\e[0m
+
+Connect to a session
+    \e[0;32mtmux attach -t <<Session number>>\e[0m
+
+Rename session
+    \e[0;32mtmux rename-session -t <<Session number>> <<Session name>>\e[0m
+    \e[0;33mtmux rename-session -t 0 database\e[0m
